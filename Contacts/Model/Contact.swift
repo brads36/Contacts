@@ -23,15 +23,15 @@ class Contact {
     var phoneNumber: String
     var emailAddress: String
     var recordID: CKRecord.ID
-    var userReference: CKRecord.Reference
+    //var userReference: CKRecord.Reference
     
-    init(name: String, phoneNumber: String, emailAddress: String, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), userReference: CKRecord.Reference) {
+    init(name: String, phoneNumber: String, emailAddress: String, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString)) { //, userReference: CKRecord.Reference) {
         
         self.name = name
         self.phoneNumber = phoneNumber
         self.emailAddress = emailAddress
         self.recordID = recordID
-        self.userReference = userReference
+        //self.userReference = userReference
     }
 } // End of class
     
@@ -42,11 +42,12 @@ extension Contact {
     convenience init?(ckRecord: CKRecord) {
         guard let name = ckRecord[ContactStrings.nameKey] as? String,
             let phoneNumber = ckRecord[ContactStrings.phoneNumberKey] as? String,
-            let emailAddress = ckRecord[ContactStrings.emailAddressKey] as? String,
-            let userReference = ckRecord[ContactStrings.userReferenceKey] as? CKRecord.Reference
+            let emailAddress = ckRecord[ContactStrings.emailAddressKey] as? String
+            //let userReference = ckRecord[ContactStrings.userReferenceKey] as? CKRecord.Reference
             else { return nil }
         
-        self.init(name: name, phoneNumber: phoneNumber, emailAddress: emailAddress, recordID: ckRecord.recordID, userReference: userReference)
+        self.init(name: name, phoneNumber: phoneNumber, emailAddress: emailAddress, recordID: ckRecord.recordID)
+        // userReference: userReference)
     }
 }
 
@@ -68,7 +69,7 @@ extension CKRecord {
             ContactStrings.nameKey : contact.name,
             ContactStrings.phoneNumberKey : contact.phoneNumber,
             ContactStrings.emailAddressKey : contact.emailAddress,
-            ContactStrings.userReferenceKey : contact.userReference
+            //ContactStrings.userReferenceKey : contact.userReference
         ])
     }
 }

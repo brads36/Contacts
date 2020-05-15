@@ -43,7 +43,7 @@ class ContactListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "contactCell", for: indexPath)
 
         let contact = ContactController.shared.contacts[indexPath.row]
         cell.textLabel?.text = contact.name
@@ -76,6 +76,7 @@ class ContactListTableViewController: UITableViewController {
         
         if segue.identifier == "addContactDetailVC" {
             guard let destinationVC = segue.destination as? ContactDetailViewController else { return }
+
         }
         
         if segue.identifier == "editContactDetailVC" {
