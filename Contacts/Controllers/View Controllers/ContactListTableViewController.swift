@@ -11,10 +11,14 @@ import UIKit
 class ContactListTableViewController: UITableViewController {
 
     // MARK: - Lifecycles
+    override func viewWillAppear(_ animated: Bool) {
+        updateViews()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadData()
-
+        updateViews()
     }
 
     // MARK: - Class Methods
