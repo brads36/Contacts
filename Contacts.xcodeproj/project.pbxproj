@@ -9,21 +9,22 @@
 /* Begin PBXBuildFile section */
 		78BA1C39246EE6E700F05416 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA1C38246EE6E700F05416 /* AppDelegate.swift */; };
 		78BA1C3B246EE6E700F05416 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA1C3A246EE6E700F05416 /* SceneDelegate.swift */; };
-		78BA1C3D246EE6E700F05416 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78BA1C3C246EE6E700F05416 /* ViewController.swift */; };
 		78BA1C40246EE6E700F05416 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78BA1C3E246EE6E700F05416 /* Main.storyboard */; };
 		78BA1C42246EE6E800F05416 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78BA1C41246EE6E800F05416 /* Assets.xcassets */; };
 		78BA1C45246EE6E800F05416 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78BA1C43246EE6E800F05416 /* LaunchScreen.storyboard */; };
+		78BA1C56246EE77800F05416 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 78BA1C55246EE77800F05416 /* CloudKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		78BA1C35246EE6E700F05416 /* Contacts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Contacts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78BA1C38246EE6E700F05416 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78BA1C3A246EE6E700F05416 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		78BA1C3C246EE6E700F05416 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		78BA1C3F246EE6E700F05416 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		78BA1C41246EE6E800F05416 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		78BA1C44246EE6E800F05416 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		78BA1C46246EE6E800F05416 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		78BA1C53246EE76900F05416 /* Contacts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Contacts.entitlements; sourceTree = "<group>"; };
+		78BA1C55246EE77800F05416 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78BA1C56246EE77800F05416 /* CloudKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +44,7 @@
 			children = (
 				78BA1C37246EE6E700F05416 /* Contacts */,
 				78BA1C36246EE6E700F05416 /* Products */,
+				78BA1C54246EE77800F05416 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +59,79 @@
 		78BA1C37246EE6E700F05416 /* Contacts */ = {
 			isa = PBXGroup;
 			children = (
+				78BA1C53246EE76900F05416 /* Contacts.entitlements */,
+				78BA1C52246EE73A00F05416 /* Helpers + Extension */,
+				78BA1C4F246EE71A00F05416 /* Controllers */,
+				78BA1C4E246EE71200F05416 /* Model */,
+				78BA1C4D246EE70B00F05416 /* Views */,
+				78BA1C4C246EE6F900F05416 /* Resources */,
+			);
+			path = Contacts;
+			sourceTree = "<group>";
+		};
+		78BA1C4C246EE6F900F05416 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
 				78BA1C38246EE6E700F05416 /* AppDelegate.swift */,
 				78BA1C3A246EE6E700F05416 /* SceneDelegate.swift */,
-				78BA1C3C246EE6E700F05416 /* ViewController.swift */,
-				78BA1C3E246EE6E700F05416 /* Main.storyboard */,
 				78BA1C41246EE6E800F05416 /* Assets.xcassets */,
 				78BA1C43246EE6E800F05416 /* LaunchScreen.storyboard */,
 				78BA1C46246EE6E800F05416 /* Info.plist */,
 			);
-			path = Contacts;
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		78BA1C4D246EE70B00F05416 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				78BA1C3E246EE6E700F05416 /* Main.storyboard */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		78BA1C4E246EE71200F05416 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		78BA1C4F246EE71A00F05416 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				78BA1C51246EE72F00F05416 /* Model Controllers */,
+				78BA1C50246EE72200F05416 /* View Controllers */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		78BA1C50246EE72200F05416 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		78BA1C51246EE72F00F05416 /* Model Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Model Controllers";
+			sourceTree = "<group>";
+		};
+		78BA1C52246EE73A00F05416 /* Helpers + Extension */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Helpers + Extension";
+			sourceTree = "<group>";
+		};
+		78BA1C54246EE77800F05416 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				78BA1C55246EE77800F05416 /* CloudKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,7 +205,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				78BA1C3D246EE6E700F05416 /* ViewController.swift in Sources */,
 				78BA1C39246EE6E700F05416 /* AppDelegate.swift in Sources */,
 				78BA1C3B246EE6E700F05416 /* SceneDelegate.swift in Sources */,
 			);
@@ -284,8 +350,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Contacts/Contacts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Contacts/Info.plist;
+				DEVELOPMENT_TEAM = 6FR69MK7S5;
+				INFOPLIST_FILE = Contacts/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -301,8 +369,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Contacts/Contacts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				INFOPLIST_FILE = Contacts/Info.plist;
+				DEVELOPMENT_TEAM = 6FR69MK7S5;
+				INFOPLIST_FILE = Contacts/Resources/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
