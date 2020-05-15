@@ -52,6 +52,7 @@
                     <navigationItem key="navigationItem" id="a2x-82-nVs">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="mZX-WA-25E">
                             <connections>
+                                <action selector="addButtonTapped:" destination="SSa-Ca-efu" id="7qo-dI-gO1"/>
                                 <segue destination="qBL-Ei-Eo2" kind="show" identifier="addContactDetailVC" id="Scm-7W-LLn"/>
                             </connections>
                         </barButtonItem>
@@ -152,6 +153,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Scm-7W-LLn"/>
+        <segue reference="Z57-wh-DnB"/>
     </inferredMetricsTieBreakers>
 </document>

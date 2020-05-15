@@ -33,9 +33,10 @@ class Contact {
         self.recordID = recordID
         self.userReference = userReference
     }
-}
+} // End of class
     
-// MARK: - Contact Convenience init Extension
+// MARK: - Contact Extensions
+//Convenience init
 extension Contact {
     
     convenience init?(ckRecord: CKRecord) {
@@ -46,6 +47,14 @@ extension Contact {
             else { return nil }
         
         self.init(name: name, phoneNumber: phoneNumber, emailAddress: emailAddress, recordID: ckRecord.recordID, userReference: userReference)
+    }
+}
+
+// Equatable extension
+extension Contact: Equatable {
+    
+    static func == (lhs: Contact, rhs: Contact) -> Bool {
+        return lhs.recordID == rhs.recordID
     }
 }
 

@@ -10,6 +10,9 @@ import UIKit
 
 class ContactDetailViewController: UIViewController {
 
+    // MARK: - Properties
+    var contact: Contact?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
