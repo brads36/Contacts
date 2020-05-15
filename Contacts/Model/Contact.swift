@@ -9,13 +9,57 @@
 import Foundation
 import CloudKit
 
+struct ContactStrings {
+    static let recordTypeKey = "Contact"
+    static let nameKey = "name"
+    static let phoneNumberKey = "phoneNumber"
+    static let emailAddressKey = "emailAddress"
+    static let userReferenceKey = "userReference"
+}
+
 class Contact {
     
     var name: String
     var phoneNumber: String
     var emailAddress: String
     var recordID: CKRecord.ID
+    var userReference: CKRecord.Reference
     
-    init(name: String, phoneNumber: String, emailAddress: String, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID(completion: @escaping ()))
+    init(name: String, phoneNumber: String, emailAddress: String, recordID: CKRecord.ID = CKRecord.ID(recordName: UUID().uuidString), userReference: CKRecord.Reference) {
+        
+        self.name = name
+        self.phoneNumber = phoneNumber
+        self.emailAddress = emailAddress
+        self.recordID = recordID
+        self.userReference = userReference
+    }
+}
     
+// MARK: - Contact Convenience init Extension
+extension Contact {
+    
+    convenience init?(ckRecord: CKRecord) {
+        guard let name = ckRecord[ContactStrings.nameKey] as? String,
+            let phoneNumber = ckRecord[ContactStrings.phoneNumberKey] as? String,
+            let emailAddress = ckRecord[ContactStrings.emailAddressKey] as? String,
+            let userReference = ckRecord[ContactStrings.userReferenceKey] as? CKRecord.Reference
+            else { return nil }
+        
+        self.init(name: name, phoneNumber: phoneNumber, emailAddress: emailAddress, recordID: ckRecord.recordID, userReference: userReference)
+    }
+}
+
+// MARK: - CKRecord Convenience init Extension
+extension CKRecord {
+    
+    convenience init(contact: Contact) {
+        self.init(recordType: ContactStrings.recordTypeKey, recordID: contact.recordID)
+        
+        self.setValuesForKeys([
+            ContactStrings.nameKey : contact.name,
+            ContactStrings.phoneNumberKey : contact.phoneNumber,
+            ContactStrings.emailAddressKey : contact.emailAddress,
+            ContactStrings.userReferenceKey : contact.userReference
+        ])
+    }
 }
